@@ -6,9 +6,8 @@ import { useState } from 'react';
 const Home = () => {
 
   const [userInput, setUserInput] = useState('');
-  const [apiOutput, setApiOutput] = useState('');
-  const [isGenerating, setIsGenerating] = useState(false);
-  //const [codeLang, setCodeLang] = useState('');
+  const [apiOutput, setApiOutput] = useState('')
+  const [isGenerating, setIsGenerating] = useState(false)
 
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
@@ -43,7 +42,7 @@ const Home = () => {
           <div className="container">
               <div className="header">
                   <div className="header-title">
-                      <h1>flow's code compiler</h1>
+                      <h1>flow's code translator</h1>
                   </div>
                   <div className="header-subtitle">
                       <h2>turn code into plain english, powered by GPT-3</h2>
@@ -57,14 +56,11 @@ const Home = () => {
                       value={userInput}
                       onChange={onUserChangedText} />
                   <div className="prompt-buttons">
-                    <a
-                      className={isGenerating ? 'generate-button loading' : 'generate-button'}
-                      onClick={callGenerateEndpoint}
-                     >
-                      <div className="generate">
-                        {isGenerating ? <span className="loader"></span> : <p>Compile</p>}
-                      </div>
-                    </a>
+                      <a className="generate-button" onClick={callGenerateEndpoint}>
+                          <div className="generate">
+                              <p>Generate</p>
+                          </div>
+                      </a>
                   </div>
                   {apiOutput && (
                       <div className="output">
@@ -73,7 +69,7 @@ const Home = () => {
                                   <h3>Output</h3>
                               </div>
                           </div>
-                          <div className="prompt-box">
+                          <div className="output-content">
                               <p>{apiOutput}</p>
                           </div>
                       </div>

@@ -10,13 +10,30 @@ body {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    /*background-color: rgb(0, 0, 0); */
+    background-color: #000000; /* fallback color for older browsers */
+   /* background-color: #24C6DC;*/
+    background: linear-gradient(to bottom, #333333, #383838);
     flex-flow: column nowrap;
     gap: 10px;
-    height: 100vh;
-    overflow: auto;
+    overflow: hidden;
     padding: 0px;
     position: relative;
+    position: relative;
+    min-height: 100vh;
+}
+
+.root:before{
+    display:flex;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to right top, #19271d, #141d17, #101511, #151314, #000000);
+    flex-flow: column nowrap;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
 }
 
 .container {
@@ -27,15 +44,19 @@ body {
     flex-flow: column nowrap;
     gap: 10px;
     height: fit-content;
-    max-width: 975px;
+    max-width: 1000px;
     overflow: auto;
     padding: 50px;
     position: relative;
     width: auto;
     gap: 64px;
+    z-index: 1;
 }
 
-.header {    
+.header {   
+    animation: fadeInAnimation ease 1.25s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; 
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -67,6 +88,9 @@ body {
 }
 
 .prompt-container {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     place-content: flex-end center;
     align-items: center;
     display: flex;
@@ -76,6 +100,7 @@ body {
     height: min-content;
     padding: 0px;
     width: min-content;
+    z-index: 1;
 }
 
 .prompt-box {
@@ -94,13 +119,12 @@ body {
     flex-flow: column nowrap;
     gap: 10px;
     height: 150px;
-    overflow: hidden;
+    overflow: visible;
     padding: 20px;
     position: relative;
     width: 610px;
     max-width: 1200px;
     will-change: transform;
-    overflow: auto;
     outline: none;
     resize: none;
     font-size: 16px;
@@ -108,10 +132,17 @@ body {
     letter-spacing: 0px;
     line-height: 1.6em;
     text-align: start;
-    color: rgba(255, 255, 255, 0.75);
+    color: #ffffff9d;
     text-decoration: none;
     text-transform: none;
-}
+    background: rgba(0, 0, 0, 0.582);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    z-index: 1;
+  }  
 
 textarea {
     font-family: 'Manrope', sans-serif;
@@ -132,10 +163,11 @@ textarea {
     flex-flow: row nowrap;
     gap: 12px;
     height: min-content;
-    overflow: hidden;
+    overflow: visible;
     padding: 0px;
     position: relative;
     width: 100%;
+    z-index: 1;
 }
 
 .key-stroke {
@@ -170,16 +202,20 @@ textarea {
 }
 
 .generate-button {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    margin: 0 auto;
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(255, 79, 18);
+    background-color: #6eeb83;
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
     flex-flow: column nowrap;
-    gap: 10px;
+    gap: 30px;
     height: min-content;
-    overflow: hidden;
+    overflow: visible;
     padding: 16px 24px;
     position: relative;
     text-decoration: none;
@@ -188,6 +224,12 @@ textarea {
     cursor: pointer;
 }
 
+.generate-button:hover {
+    color: rgba(255, 255, 255, 0.475);
+    box-shadow: 0 3px 9px #6eeb83b1;
+    overflow: visible;
+  }
+
 .generate {
     outline: none;
     display: flex;
@@ -195,11 +237,13 @@ textarea {
     justify-content: flex-start;
     flex-shrink: 0;
     transform: none;
+    overflow: visible;
 }
 
 .generate p {
     color: rgb(255, 255, 255);
     margin: 0;
+    font-weight: bold;
 }
 
 .loading {
@@ -326,6 +370,25 @@ textarea {
     color: rgba(255, 255, 255, 0.5);
 }
 
+/* Styles for the scroll bar */
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #151314;
+  }
+  
+  /* Styles for the scroll bar track (the background of the scroll bar) */
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+  }
+  
+  /* Styles for the scroll bar thumb (the part of the scroll bar that the user can grab and drag) */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-color: #555;
+  }
+
 @media (min-width: 810px) and (max-width: 1199px) {
     .container {
         max-width: 600px;
@@ -412,4 +475,13 @@ textarea {
     100% {
         transform: rotate(360deg);
     }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
