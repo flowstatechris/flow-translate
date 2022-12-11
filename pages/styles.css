@@ -321,9 +321,45 @@ textarea {
     gap: 10px;
     height: min-content;
     max-width: 1200px;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
     width: 100%;
+    color: rgba(255, 255, 255, 0.819);
+}
+
+.output-box{    
+    border-bottom-width: 1px;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 1px;
+    place-content: flex-start;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: 150px;
+    overflow: visible;
+    padding: 20px;
+    position: relative;
+    width: 610px;
+    max-width: 1200px;
+    will-change: transform;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 1.6em;
+    text-align: start;
+    color: #ffffff9d;
+    text-decoration: none;
+    text-transform: none;
+    z-index: 1;
 }
 
 .output-header-container {

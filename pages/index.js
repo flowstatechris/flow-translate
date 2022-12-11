@@ -73,7 +73,7 @@ const Home = () => {
                                   <h3>Output</h3>
                               </div>
                           </div>
-                          <div className="prompt-box">
+                          <div className="output-box">
                               <p>{apiOutput}</p>
                           </div>
                       </div>
