@@ -1,4 +1,4 @@
-# This program translates code into plain english using GPT-3
+# Translate code into plain english using GPT-3
 
 just copy and paste, hit compile, and you're good to go!
 
