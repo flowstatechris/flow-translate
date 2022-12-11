@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
  
-const basePromptPrefix = 'Explain this code written in C++'; // ${req.body.codeLang}
+const basePromptPrefix = 'Explain this code written in C++ to plain english'; 
 
 const generateAction = async (req, res) => {
   // Run first prompt
