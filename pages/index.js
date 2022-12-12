@@ -83,7 +83,7 @@ const Home = () => {
 
       </div><div className="badge-container grow">
               <a
-                  href="https:/twitter.com/flowstatechris"
+                  href="https://twitter.com/flowstatechris"
                   target="_blank"
                   rel="noreferrer"
               >
