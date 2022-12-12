@@ -14,6 +14,6 @@ just copy and paste, hit compile, and you're good to go!
  
  #### *Be sure to add your own api key in a .env!*
  
- ### support for more languages coming soon!
+ ### support for more languages coming soon! <3
  
  
