@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
  
-const basePromptPrefix = 'Explain this code written in C++ to plain english'; 
+const basePromptPrefix = 'Explain this code written in C++ to plain english'; // add state variable
 
 const generateAction = async (req, res) => {
   // Run first prompt
